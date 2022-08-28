@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using N6CA.Services;
 using Netcore6ConsoleApp.Commands;
 using Netcore6ConsoleApp.Logics;
 using NLog.Extensions.Logging;
@@ -40,6 +41,8 @@ namespace Netcore6ConsoleApp
                 {
                     services.AddScoped<IRootLogic, RootLogic>();
                     services.AddScoped<IPostLogic, PostLogic>();
+                    services.AddHttpClient<IZipInformationService, ZipCloudService>();
+                    services.AddScoped<IZipInformationService, ZipCloudService>();
                 });
 
             return hostBuilder;

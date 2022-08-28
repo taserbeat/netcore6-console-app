@@ -23,4 +23,8 @@
     </Content>
     <None Remove="appsettings.json" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\N6CA.Services\N6CA.Services.csproj" />
+  </ItemGroup>
 </Project>
