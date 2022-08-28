@@ -42,7 +42,7 @@ namespace Netcore6ConsoleApp
                     services.AddScoped<IRootLogic, RootLogic>();
                     services.AddScoped<IZipLogic, ZipLogic>();
                     services.AddHttpClient<IZipInformationService, ZipCloudService>();
-                    services.AddScoped<IZipInformationService, ZipCloudService>();
+                    services.AddScoped<IZipInformationService, ZipInformationServiceMock>();
                 });
 
             return hostBuilder;

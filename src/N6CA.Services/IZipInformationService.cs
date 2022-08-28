@@ -14,4 +14,23 @@ namespace N6CA.Services
         /// <returns></returns>
         Task<ZipInformation> GetPostInformation(string zipCode);
     }
+
+    public class ZipInformationServiceMock : IZipInformationService
+    {
+        public ZipInformationServiceMock()
+        {
+
+        }
+
+        public Task<ZipInformation> GetPostInformation(string zipCode)
+        {
+            var zipInformation = new ZipInformation()
+            {
+                ZipCode = zipCode,
+                Address = "北海道札幌市",
+            };
+
+            return Task.FromResult(zipInformation);
+        }
+    }
 }

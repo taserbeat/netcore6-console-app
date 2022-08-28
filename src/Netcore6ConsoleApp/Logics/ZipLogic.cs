@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using N6CA.Services;
 
 namespace Netcore6ConsoleApp.Logics
 {
@@ -23,18 +24,30 @@ namespace Netcore6ConsoleApp.Logics
     {
         private readonly ILogger<ZipLogic> _logger;
         private readonly IConfiguration _configuration;
+        private readonly IZipInformationService _zipInformationService;
 
-        public ZipLogic(ILogger<ZipLogic> logger, IConfiguration configuration)
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="configuration"></param>
+        /// <param name="zipInformationService"></param>
+        public ZipLogic(ILogger<ZipLogic> logger, IConfiguration configuration, IZipInformationService zipInformationService)
         {
             _logger = logger;
             _configuration = configuration;
+            _zipInformationService = zipInformationService;
         }
 
-        public Task RunAsync(string zipCode)
+        public async Task RunAsync(string zipCode)
         {
             _logger.LogInformation($"start search zip code: {zipCode}");
 
-            return Task.CompletedTask;
+            var zipInformation = await _zipInformationService.GetPostInformation(zipCode);
+
+            Console.WriteLine($"ZipCode: {zipInformation.ZipCode}{Environment.NewLine}Address: {zipInformation.Address}");
+
+            return;
         }
     }
 }
