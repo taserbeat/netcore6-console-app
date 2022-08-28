@@ -40,7 +40,7 @@ namespace Netcore6ConsoleApp
                 .ConfigureServices(services =>
                 {
                     services.AddScoped<IRootLogic, RootLogic>();
-                    services.AddScoped<IPostLogic, PostLogic>();
+                    services.AddScoped<IZipLogic, ZipLogic>();
                     services.AddHttpClient<IZipInformationService, ZipCloudService>();
                     services.AddScoped<IZipInformationService, ZipCloudService>();
                 });

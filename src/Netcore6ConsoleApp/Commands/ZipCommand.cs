@@ -5,38 +5,38 @@ using Netcore6ConsoleApp.Logics;
 namespace Netcore6ConsoleApp.Commands
 {
     /// <summary>
-    /// postコマンド
+    /// zipコマンド
     /// </summary>
-    [Command("post")]
-    public class PostCommand : CommandBase
+    [Command("zip")]
+    public class ZipCommand : CommandBase
     {
-        private readonly ILogger<PostCommand> _logger;
-        private readonly IPostLogic _postLogic;
+        private readonly ILogger<ZipCommand> _logger;
+        private readonly IZipLogic _zipLogic;
 
         [Argument(0, "-c|--code", "検索する郵便番号: XXX-XXXX")]
-        public string? PostCode { get; set; }
+        public string? ZipCode { get; set; }
 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="logger"></param>
-        /// <param name="postLogic"></param>
-        public PostCommand(ILogger<PostCommand> logger, IPostLogic postLogic)
+        /// <param name="zipLogic"></param>
+        public ZipCommand(ILogger<ZipCommand> logger, IZipLogic zipLogic)
         {
             _logger = logger;
-            _postLogic = postLogic;
+            _zipLogic = zipLogic;
         }
 
         public override async Task OnExecuteAsync(CommandLineApplication app)
         {
-            if (string.IsNullOrWhiteSpace(PostCode))
+            if (string.IsNullOrWhiteSpace(ZipCode))
             {
                 var exception = new ArgumentException();
                 _logger.LogError("郵便番号が指定されていません", exception);
                 throw exception;
             }
 
-            await _postLogic.RunAsync(PostCode);
+            await _zipLogic.RunAsync(ZipCode);
         }
     }
 }

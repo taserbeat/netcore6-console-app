@@ -8,7 +8,7 @@ namespace Netcore6ConsoleApp.Commands
     /// rootコマンド
     /// </summary>
     [Command("n6ca")]
-    [Subcommand(typeof(PostCommand))]
+    [Subcommand(typeof(ZipCommand))]
     public class RootCommand : CommandBase
     {
         private readonly ILogger<RootCommand> _logger;
