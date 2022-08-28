@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <!-- https://qiita.com/kojimadev/items/45b4c8e002c226cc1c36 -->
+    <Version>0.0.1</Version>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+</Project>
