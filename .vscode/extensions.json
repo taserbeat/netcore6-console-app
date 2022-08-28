@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "ms-dotnettools.csharp",
+    "kreativ-software.csharpextensions",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "k--kato.docomment",
+    "redhat.vscode-xml"
+  ]
+}
