@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netcore6ConsoleApp", "src\N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N6CA.Services", "src\N6CA.Services\N6CA.Services.csproj", "{8F8FDCC7-C82F-4A03-9FCD-725F7A335FD2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{22CA7495-1BB9-4590-959D-9639F4939BF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netcore6ConsoleApp.Tests", "tests\Netcore6ConsoleApp.Tests\Netcore6ConsoleApp.Tests.csproj", "{B14D19F6-C232-4532-9558-37E1A4E4CB50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +30,14 @@ Global
 		{8F8FDCC7-C82F-4A03-9FCD-725F7A335FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F8FDCC7-C82F-4A03-9FCD-725F7A335FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F8FDCC7-C82F-4A03-9FCD-725F7A335FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B14D19F6-C232-4532-9558-37E1A4E4CB50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B14D19F6-C232-4532-9558-37E1A4E4CB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B14D19F6-C232-4532-9558-37E1A4E4CB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B14D19F6-C232-4532-9558-37E1A4E4CB50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B3DB99D1-AC5E-4CE2-8A0F-0F057F6AC0A2} = {69E1DE63-6314-4029-9C35-E35F70A13BEC}
 		{8F8FDCC7-C82F-4A03-9FCD-725F7A335FD2} = {69E1DE63-6314-4029-9C35-E35F70A13BEC}
+		{B14D19F6-C232-4532-9558-37E1A4E4CB50} = {22CA7495-1BB9-4590-959D-9639F4939BF7}
 	EndGlobalSection
 EndGlobal
