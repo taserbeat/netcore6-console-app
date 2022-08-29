@@ -9,7 +9,7 @@ using NLog.Extensions.Logging;
 
 namespace Netcore6ConsoleApp
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -17,7 +17,7 @@ namespace Netcore6ConsoleApp
             builder.RunCommandLineApplicationAsync<RootCommand>(args);
         }
 
-        static IHostBuilder CreateHostBuilder()
+        public static IHostBuilder CreateHostBuilder()
         {
             var hostBuilder = new HostBuilder()
                 .ConfigureHostConfiguration(builder =>
