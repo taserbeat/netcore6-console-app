@@ -1,0 +1,38 @@
+{
+  // IntelliSense を使用して利用可能な属性を学べます。
+  // 既存の属性の説明をホバーして表示します。
+  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "n6ca",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/Netcore6ConsoleApp/bin/Debug/net6.0/n6ca.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/src/Netcore6ConsoleApp",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": "n6ca zip",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/src/Netcore6ConsoleApp/bin/Debug/net6.0/n6ca.dll",
+      "args": [
+        "zip",
+        "123-4567"
+      ],
+      "cwd": "${workspaceFolder}/src/Netcore6ConsoleApp",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    },
+    {
+      "name": ".NET Core Attach",
+      "type": "coreclr",
+      "request": "attach"
+    }
+  ]
+}
