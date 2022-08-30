@@ -5,6 +5,7 @@ using Moq;
 using N6CA.Services;
 using N6CA.Services.Models;
 using Netcore6ConsoleApp.Logics;
+using Netcore6ConsoleApp.Providers;
 using Xunit;
 
 namespace Netcore6ConsoleApp.Tests.LogicTests.ZipLogics
@@ -18,10 +19,12 @@ namespace Netcore6ConsoleApp.Tests.LogicTests.ZipLogics
         private readonly IConfigurationRoot _configuration;
 
         private readonly Mock<IZipInformationService> _zipInformationMock;
+        private readonly Mock<IConsoleProvider> _consoleProviderMock;
 
         public RunAsyncTests()
         {
             _zipInformationMock = new Mock<IZipInformationService>();
+            _consoleProviderMock = new Mock<IConsoleProvider>();
 
             _configuration = new ConfigurationBuilder()
                 .AddInMemoryCollection()
@@ -32,6 +35,7 @@ namespace Netcore6ConsoleApp.Tests.LogicTests.ZipLogics
             _services.AddLogging();
             _services.AddScoped<ZipLogic>();
             _services.AddScoped(_ => _zipInformationMock.Object);
+            _services.AddScoped(_ => _consoleProviderMock.Object);
             _services.AddScoped<IConfiguration>(_ => _configuration);
         }
 
@@ -59,6 +63,7 @@ namespace Netcore6ConsoleApp.Tests.LogicTests.ZipLogics
 
             // 検証
             _zipInformationMock.Verify(x => x.GetPostInformation(zipCode), Times.Once);
+            _consoleProviderMock.Verify(x => x.WriteLine(It.IsAny<string>()), Times.Once);
         }
     }
 }

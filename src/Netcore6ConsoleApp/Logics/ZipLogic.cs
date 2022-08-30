@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using N6CA.Services;
+using Netcore6ConsoleApp.Providers;
 
 namespace Netcore6ConsoleApp.Logics
 {
@@ -25,6 +26,7 @@ namespace Netcore6ConsoleApp.Logics
         private readonly ILogger<ZipLogic> _logger;
         private readonly IConfiguration _configuration;
         private readonly IZipInformationService _zipInformationService;
+        private readonly IConsoleProvider _consoleProvider;
 
         /// <summary>
         /// コンストラクタ
@@ -32,11 +34,13 @@ namespace Netcore6ConsoleApp.Logics
         /// <param name="logger"></param>
         /// <param name="configuration"></param>
         /// <param name="zipInformationService"></param>
-        public ZipLogic(ILogger<ZipLogic> logger, IConfiguration configuration, IZipInformationService zipInformationService)
+        /// <param name="consoleProvider"></param>
+        public ZipLogic(ILogger<ZipLogic> logger, IConfiguration configuration, IZipInformationService zipInformationService, IConsoleProvider consoleProvider)
         {
             _logger = logger;
             _configuration = configuration;
             _zipInformationService = zipInformationService;
+            _consoleProvider = consoleProvider;
         }
 
         public async Task RunAsync(string zipCode)
@@ -45,7 +49,7 @@ namespace Netcore6ConsoleApp.Logics
 
             var zipInformation = await _zipInformationService.GetPostInformation(zipCode);
 
-            Console.WriteLine($"ZipCode: {zipInformation.ZipCode}{Environment.NewLine}Address: {zipInformation.Address}");
+            _consoleProvider.WriteLine($"ZipCode: {zipInformation.ZipCode}{Environment.NewLine}Address: {zipInformation.Address}");
 
             return;
         }

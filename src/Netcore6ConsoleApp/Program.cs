@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using N6CA.Services;
 using Netcore6ConsoleApp.Commands;
 using Netcore6ConsoleApp.Logics;
+using Netcore6ConsoleApp.Providers;
 using NLog.Extensions.Logging;
 
 namespace Netcore6ConsoleApp
@@ -43,6 +44,7 @@ namespace Netcore6ConsoleApp
                     services.AddScoped<IZipLogic, ZipLogic>();
                     services.AddHttpClient<IZipInformationService, ZipCloudService>();
                     services.AddScoped<IZipInformationService, ZipInformationServiceMock>();
+                    services.AddScoped<IConsoleProvider, ConsoleProvider>();
                 });
 
             return hostBuilder;
