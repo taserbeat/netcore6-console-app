@@ -32,6 +32,9 @@ namespace Netcore6ConsoleApp.Tests.Applications
             Configuration = new ConfigurationBuilder().AddInMemoryCollection().Build();
         }
 
+        /// <summary>
+        /// テストテストアプリケーションを初期化する
+        /// </summary>
         public void Reset()
         {
             var dirName = Path.GetDirectoryName(typeof(TestApplication).Assembly.Location);
@@ -50,16 +53,16 @@ namespace Netcore6ConsoleApp.Tests.Applications
             var hostBuilder = Program.CreateHostBuilder();
 
             hostBuilder
-            .ConfigureLogging(loggingBuilder =>
-            {
-                loggingBuilder.ClearProviders();
-            })
-            .ConfigureServices(services =>
-            {
-                services.AddScoped(_ => RootLogicMock.Object);
-                services.AddScoped(_ => ZipLogicMock.Object);
-                services.AddSingleton<IConfiguration>(_ => Configuration);
-            });
+                .ConfigureLogging(loggingBuilder =>
+                {
+                    loggingBuilder.ClearProviders();
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddScoped(_ => RootLogicMock.Object);
+                    services.AddScoped(_ => ZipLogicMock.Object);
+                    services.AddSingleton<IConfiguration>(_ => Configuration);
+                });
 
             return hostBuilder.RunCommandLineApplicationAsync<RootCommand>(args);
         }
