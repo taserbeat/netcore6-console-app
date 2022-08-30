@@ -5,11 +5,12 @@ using Microsoft.Extensions.Logging;
 using N6CA.Services;
 using Netcore6ConsoleApp.Commands;
 using Netcore6ConsoleApp.Logics;
+using Netcore6ConsoleApp.Providers;
 using NLog.Extensions.Logging;
 
 namespace Netcore6ConsoleApp
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -17,7 +18,7 @@ namespace Netcore6ConsoleApp
             builder.RunCommandLineApplicationAsync<RootCommand>(args);
         }
 
-        static IHostBuilder CreateHostBuilder()
+        public static IHostBuilder CreateHostBuilder()
         {
             var hostBuilder = new HostBuilder()
                 .ConfigureHostConfiguration(builder =>
@@ -43,6 +44,7 @@ namespace Netcore6ConsoleApp
                     services.AddScoped<IZipLogic, ZipLogic>();
                     services.AddHttpClient<IZipInformationService, ZipCloudService>();
                     services.AddScoped<IZipInformationService, ZipInformationServiceMock>();
+                    services.AddScoped<IConsoleProvider, ConsoleProvider>();
                 });
 
             return hostBuilder;
