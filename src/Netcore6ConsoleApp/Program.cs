@@ -18,6 +18,11 @@ namespace Netcore6ConsoleApp
             builder.RunCommandLineApplicationAsync<RootCommand>(args);
         }
 
+        /// <summary>
+        /// Generic Hostを構築する
+        /// </summary>
+        /// <remarks>https://natemcmaster.github.io/CommandLineUtils/docs/advanced/generic-host.html</remarks>
+        /// <returns></returns>
         public static IHostBuilder CreateHostBuilder()
         {
             var hostBuilder = new HostBuilder()
