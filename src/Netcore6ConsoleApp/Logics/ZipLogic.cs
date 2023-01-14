@@ -49,6 +49,11 @@ namespace Netcore6ConsoleApp.Logics
 
             var zipInformation = await _zipInformationService.GetPostInformation(zipCode);
 
+            var delaySpan2 = TimeSpan.FromSeconds(3);
+            Console.WriteLine($"{delaySpan2.Seconds}[秒]待機します");
+            await Task.Delay(delaySpan2);
+            Console.WriteLine($"{delaySpan2.Seconds}[秒]待機しました！");
+
             _consoleProvider.WriteLine($"ZipCode: {zipInformation.ZipCode}{Environment.NewLine}Address: {zipInformation.Address}");
 
             return;
