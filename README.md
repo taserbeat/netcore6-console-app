@@ -10,4 +10,20 @@
 
 # 実行手順
 
-Todo: 実行手順を記載する
+## 開発中の実行
+
+- root コマンド
+
+```bash
+cd src/Netcore6ConsoleApp
+dotnet run
+```
+
+- サブコマンド
+
+以下は`zip`というサブコマンドの例
+
+```bash
+cd src/Netcore6ConsoleApp
+dotnet run -- zip 123-4567
+```
