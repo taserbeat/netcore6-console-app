@@ -12,10 +12,10 @@ namespace Netcore6ConsoleApp
 {
     public class Program
     {
-        static void Main(string[] args)
+        static Task<int> Main(string[] args)
         {
             var builder = CreateHostBuilder();
-            builder.RunCommandLineApplicationAsync<RootCommand>(args);
+            return builder.RunCommandLineApplicationAsync<RootCommand>(args);
         }
 
         /// <summary>
